@@ -7,13 +7,19 @@ def badge_maker(person)
 end
 
 def batch_badge_creator(names)
-  names.map{ |person| "Hello, my name is #{person}." }                      
+  badges = []
+  names.each do |person|
+    badges << badge_maker(person)
+  end
+  return badges
 end
 
 def assign_rooms(names)
-  names.each_with_index.map do |person, index| 
-    "Hello, #{person}! You'll be assigned to room #{index + 1}!"
+  assignments = []
+  names.each_with_index do |names, index| 
+    assignments << "Hello, #{names}! You'll be assigned to room #{index + 1}!"
   end
+  return assignments
 end
 
 def printer(names)
@@ -24,3 +30,11 @@ def printer(names)
     puts message
   end
 end
+
+
+# to return using the .each method, which doesn't have a built-in return like .map:
+
+# create empty array
+# iterate through initial array
+# shovel or push |item| into empty array
+# return the newly populated array

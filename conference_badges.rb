@@ -25,7 +25,7 @@ def assign_rooms(speakers)
     # to start at a random number like 21 rather than room 1 do the below instead.
     # room_numbers << "Hello, #{name}! You'll be assigned to room #{number + 21}!"
   end
-
+  return room_numbers
   puts room_numbers
 end
 

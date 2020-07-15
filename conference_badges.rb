@@ -1,29 +1,41 @@
-# Write your code here.
+## REWORK:
 
-
+# 1. Build a #badge_maker method that:
+#    -Prints: "Hello, my name is NAME"
+# 2. Build a #batch_badge_creator method that:
+#    -Takes an array of names as an argument
+#    -Returns an array of badge messages
+# 3. Build a #assign_rooms method that:
+#    -Takes in the list of speakers
+#    -Returns a list of room assignments as the following:
+#      "Hello, NAME! You'll be assigned to room ___!"
+# 4. Build a #printer method that:
+#    -Outputs the results of #batch_badge_creator and
+#     #assign_rooms
 
 def badge_maker(name)
-  return "Hello, my name is #{name}."
+  "Hello, my name is #{name}."
 end 
 
-attendees = ["Edsger", "Ada", "Charles", "Alan", "Grace", "Linus", "Matz"]
-
-
-def batch_badge_creator(attendees)
-  attendees.map do |person| 
-    "Hello, my name is #{person}."
+def batch_badge_creator(array)
+  array.collect do |name|
+    "Hello, my name is #{name}."
   end 
 end 
 
-def assign_rooms(attendees)
-  attendees.each_with_index.map do |name, room|
-  "Hello, #{name}! You'll be assigned to room #{room + 1}!"
+def assign_rooms(array)
+  array.each_with_index.collect do |name, index|
+    "Hello, #{name}! You'll be assigned to room #{index + 1}!"
   end 
 end 
 
-def printer(attendees)
-  batch_badge_creator(attendees).each { |badge| puts badge }
-  assign_rooms(attendees).each { |assignment| puts assignment}
+def printer(array)
+  batch_badge_creator(array).each do |sentence|
+    puts sentence 
+  end 
+  assign_rooms(array).each do |sentence|
+    puts sentence
+  end
 end 
 
 
